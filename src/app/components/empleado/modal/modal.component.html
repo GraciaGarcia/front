@@ -1,0 +1,62 @@
+<h2 mat-dialog-title>
+    {{ isEditMode ? 'Editar Empleado' : 'Nuevo Empleado' }}
+  </h2>
+  
+  <mat-dialog-content [formGroup]="employeeForm">
+    <mat-form-field class="full-width spaced">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+  
+    <mat-form-field class="full-width spaced">
+      <mat-label>Apellido</mat-label>
+      <input matInput formControlName="lastname">
+    </mat-form-field>
+  
+    <mat-form-field class="full-width spaced">
+      <mat-label>Tipo de Documento</mat-label>
+      <mat-select formControlName="documentType">
+        <mat-option value="DNI">DNI</mat-option>
+        <mat-option value="Pasaporte">Pasaporte</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field class="full-width spaced">
+      <mat-label>Número de Documento</mat-label>
+      <input matInput formControlName="documentNumber">
+    </mat-form-field>
+  
+    <mat-form-field class="full-width spaced">
+      <mat-label>Fecha de Registro</mat-label>
+      <input matInput type="date" formControlName="registrationDate">
+    </mat-form-field>
+  
+    <mat-form-field class="full-width spaced">
+      <mat-label>Teléfono</mat-label>
+      <input matInput formControlName="cellphone">
+    </mat-form-field>
+  
+    <mat-form-field class="full-width spaced">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="close()">Cancelar</button>
+  
+    <button 
+      mat-button 
+      color="primary" 
+      (click)="save()" 
+      [disabled]="employeeForm.invalid">
+      {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+    </button>
+  </mat-dialog-actions>
+  
+  <style>
+    .spaced {
+      margin-bottom: 16px;
+    }
+  </style>
+  
