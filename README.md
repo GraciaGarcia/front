@@ -1,1 +1,2 @@
 # front
+- video explicando funcionalidades 
